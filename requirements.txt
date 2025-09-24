@@ -1,0 +1,37 @@
+# Core dependencies
+numpy>=1.24.0
+opencv-python>=4.8.0
+Pillow>=10.0.0
+
+# Audio processing
+pyaudio>=0.2.11
+sounddevice>=0.4.6
+librosa>=0.10.1
+pydub>=0.25.1
+
+# AI/ML dependencies
+torch>=2.0.0
+transformers>=4.30.0
+openai>=1.0.0
+whisper>=1.1.10
+
+# Image processing
+diffusers>=0.20.0
+accelerate>=0.20.0
+
+# GUI framework (choose one)   ------ still not decided
+# tkinter (built-in with Python)
+# PyQt6>=6.5.0
+# kivy>=2.1.0
+
+# Utilities
+click>=8.1.0
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+tqdm>=4.65.0
+
+# Development dependencies
+pytest>=7.4.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0
