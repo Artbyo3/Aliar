@@ -19,10 +19,8 @@ whisper>=1.1.10
 diffusers>=0.20.0
 accelerate>=0.20.0
 
-# GUI framework (choose one)   ------ still not decided
-# tkinter (built-in with Python)
-# PyQt6>=6.5.0
-# kivy>=2.1.0
+# GUI framework
+customtkinter>=5.2.0
 
 # Utilities
 click>=8.1.0

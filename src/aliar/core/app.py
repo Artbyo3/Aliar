@@ -5,6 +5,8 @@ Main application class for Aliar.
 import logging
 from typing import Optional
 
+from aliar.ui.main_window import MainWindow
+
 logger = logging.getLogger(__name__)
 
 
@@ -15,14 +17,22 @@ class AliarApp:
         """Initialize the Aliar application."""
         self.logger = logger
         self.is_running = False
+        self.main_window: Optional[MainWindow] = None
         
     def initialize(self) -> bool:
         """Initialize the application components."""
         try:
             self.logger.info("Initializing Aliar application...")
+            
+            # Initialize UI components
+            self.main_window = MainWindow()
+            if not self.main_window.initialize():
+                self.logger.error("Failed to initialize main window")
+                return False
+            
             # TODO: Initialize audio/video components
             # TODO: Initialize AI/ML models
-            # TODO: Initialize UI components
+            
             return True
         except Exception as e:
             self.logger.error(f"Failed to initialize application: {e}")
@@ -38,12 +48,9 @@ class AliarApp:
         self.logger.info("Aliar application started successfully!")
         
         try:
-            # TODO: Main application loop
-            while self.is_running:
-                # TODO: Process audio/video inputs
-                # TODO: Handle user interactions
-                # TODO: Update UI
-                pass
+            # Show the main window (this will block until window is closed)
+            if self.main_window:
+                self.main_window.show()
         except KeyboardInterrupt:
             self.logger.info("Application interrupted by user")
         except Exception as e:
@@ -55,6 +62,11 @@ class AliarApp:
         """Shutdown the application gracefully."""
         self.logger.info("Shutting down Aliar application...")
         self.is_running = False
+        
+        # Clean up UI
+        if self.main_window:
+            self.main_window.hide()
+        
         # TODO: Clean up resources
         # TODO: Stop audio/video streams
         # TODO: Save application state
